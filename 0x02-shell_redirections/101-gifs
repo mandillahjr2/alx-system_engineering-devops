@@ -1,3 +1,2 @@
 #!/bin/bash 
-find . -type f -name '*.gif' -exec basename -s .gif {} \; | sort -f | tr '\n' '\0' | tr '\0' '\n'
-
+find . -type f -name '*.gif' -printf "%f\n" | sed 's/\.gif$//' | LC_COLLATE=C sort -f
